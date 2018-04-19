@@ -1,0 +1,44 @@
+version: 0.2
+
+#env:
+  #variables:
+     # key: "value"
+     # key: "value"
+  #parameter-store:
+     # key: "value"
+     # key: "value"
+
+phases:
+  install:
+    commands:
+     - npm install
+  #pre_build:
+    #commands:
+      # - command
+  build:
+    commands:
+      - npm run build
+  post_build:
+    commands:
+       - |
+         cat <<EOF > build/package.json
+         {
+           "name": "myreactapp-runner",
+           "version": "1.0.0",
+           "private": true,
+           "scripts": {
+             "start": "serve -s build"
+           },
+           "dependencies": {
+             "serve": "^6.5.5"
+           }
+         }
+         EOF
+artifacts:
+  files:
+   - '**/*'
+  #discard-paths: yes
+  base-directory: build
+#cache:
+  #paths:
+    # - paths
