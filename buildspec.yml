@@ -27,7 +27,7 @@ phases:
            "version": "1.0.0",
            "private": true,
            "scripts": {
-             "start": "serve -s build -p 8081"
+             "start": "serve -s"
            },
            "dependencies": {
              "serve": "^6.5.5"
