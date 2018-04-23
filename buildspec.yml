@@ -12,9 +12,9 @@ phases:
   install:
     commands:
      - npm install
-  #pre_build:
-    #commands:
-      # - command
+  pre_build:
+    commands:
+      - npm run test:coverage
   build:
     commands:
       - npm run build
